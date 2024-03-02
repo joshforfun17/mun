@@ -16,21 +16,26 @@
             <button class="btn" id="yesButton" onclick="nextPage()">Yes</button>
             <button class="btn" id="noButton" onmouseover="moveButton()" onclick="moveButton()">No</button>
             <script>
+                var clickCount = 0;
+
                 function nextPage() {
                     window.location.href = "yes.html";
                 }
 
                 function moveButton() {
-                    var x = Math.random() * (window.innerWidth - document.getElementById('noButton').offsetWidth);
-                    var y = Math.random() * (window.innerHeight - document.getElementById('noButton').offsetHeight);
-                    document.getElementById('noButton').style.left = `${x}px`;
-                    document.getElementById('noButton').style.top = `${y}px`;
+                    clickCount++;
+                    if (clickCount >= 5) {
+                        window.location.href = "no.html";
+                    } else {
+                        var x = Math.random() * (window.innerWidth - document.getElementById('noButton').offsetWidth);
+                        var y = Math.random() * (window.innerHeight - document.getElementById('noButton').offsetHeight);
+                        document.getElementById('noButton').style.left = `${x}px`;
+                        document.getElementById('noButton').style.top = `${y}px`;
+                    }
                 }
             </script>
         </div>
     </div>
 </body>
-
-
 
 </html>
